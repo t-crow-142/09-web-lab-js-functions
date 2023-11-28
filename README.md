@@ -1,92 +1,41 @@
-# 09-web-lab-js-functions
+# Web Lab &ndash; JavaScript Functions &amp; Timers
 
+In this lab, we continue our coverage of JavaScript by introducing functions, and more event handling in the form of timer events.
 
+## Obtaining the code
 
-## Getting started
+Now that you've obtained a copy of this repository through GitHub Classroom's invite, you have your own private version of this repository (i.e. the one you're looking at now)! To clone this repository onto your machine, click the green `Code` button, make sure `HTTPS` is selected, then click the `copy` button to the right of the web URL to copy its value. Then, clone onto your local machine from a terminal, using the `git clone` command.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+If this is the first time you've ever cloned a repository on the current machine, you may be asked to enter your GitHub credentials. The "sign in with your browser" option should work just fine. You may need to enter your GitHub username and password, and / or authorize "git credential manager" to access your account. Perform these steps if asked.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Now, you should have a clone of your repository on your local machine, ready to develop!
 
-## Add your files
+Remember to commit and push your work regularly for backup purposes. It's also really good practice to create new branches for each exercise, and merge these into `main` using a Pull Request (PR) when they're complete (as opposed to simply pushing directly to `main` each time). This will get you used to a collaborative workflow style that will come in really handy when working on the final team project this semester!
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Exercise One &ndash; Practice with functions
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/auckland-ict-grad-school/pgcert-it/programming-web-technologies/v2/lab-exercises/09-web-lab-js-functions.git
-git branch -M main
-git push -uf origin main
-```
+In this exercise, we will practice writing and calling (invoking) functions. We will complete a simple web app which calculates the volume of a cylinder and a cone based on user input, and displays the results.
 
-## Integrate with your tools
+To begin, study the contents of the [`ex01`](./exercises/ex01) folder, then perform the following steps:
 
-- [ ] [Set up project integrations](https://gitlab.com/auckland-ict-grad-school/pgcert-it/programming-web-technologies/v2/lab-exercises/09-web-lab-js-functions/-/settings/integrations)
+1. At the marked location in `shape-calculator.js`, add an event listener to the `#btnCalculate` button. The `generateResults()` function should be called when the button is clicked.
+2. Study the `getConeVolume()` function, which returns the volume of a cone given its radius and height. The volume of a cone is given by the following formula:
 
-## Collaborate with your team
+   V = &pi;*r* `<sup>`2 `</sup>`*h* / 3
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+   where *r* is the radius of the base of the cone, and *h* is its height. You don't need to modify this function.
+3. At the marked location in `shape-calculator.js`, create a function called `getCylinderVolume`. The function should take two parameters - a cylinder's radius and height - and should return the volume of a cylinder with those dimensions. The volume of a cylinder is given by the following formula:
 
-## Test and Deploy
+   V = &pi;*r* `<sup>`2 `</sup>`*h*
 
-Use the built-in continuous integration in GitLab.
+   where *r* is the radius of the cylinder, and *h* is its height.
+4. At the marked location in `shape-calculator.js`, write a function called `displayShapeVolumes`. The function should take two parameters - the volume of a cone and the volume of a cylinder - and should display those values in the `#cylVolume` and `#coneVolume` `<span>`s, respectively.
+5. At the marked location in `shape-calculator.js`, write a function called `displayLargestShapeInfo`. The function should take two parameters - the volume of a cone and the volume of a cylinder - and should display information about the *largest* of those two shapes in the `#resultDetail` `<p>`.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+   As an example, if the largest shape is the cylinder, and it has a volume of 20cm `<sup>`3 `</sup>`, then the paragraph should disply something like: *"The shape with the largest volume is the cylinder, with a volume of 20cm `<sup>`3 `</sup>`"*.
+6. At the marked location near the top of `shape-calculator.js`, complete the web app by calling (invoking) the functions you've just written in steps 2 through 5. Your web app should:
 
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+   - Calculate the volume of a cone, given the radius and height entered by the user
+   - Calculate the colume of a cylinder, given the radius and height entered by the user
+   - Display the volumes of those shapes back to the user
+   - Display information about the largest shape to the user
